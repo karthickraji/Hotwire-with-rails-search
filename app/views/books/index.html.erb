@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Books</h1>
+
+<%= turbo_frame_tag "search_books" do %>
+  <%= form_with url: search_books_path, method: :post do |form| %>
+    <%= form.text_field :search_book %>
+    <%= form.submit "search" %>
+  <% end %>
+<% end %>
+
+<%= turbo_frame_tag "books" do %>
+  <%= render partial: "books/book_list", locals: {books:@books} %>
+<% end %>
+
+<br>
+
+<%= link_to 'New Book', new_book_path %>

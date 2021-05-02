@@ -1,0 +1,7 @@
+ <%#= turbo_stream.replace(:books, partial: "books/book_list", locals: {books: @books}) %>
+ <%= turbo_stream.replace "books" do %>
+   <%= turbo_frame_tag "books" do %>
+     <%= render partial: "books/book_list", locals: { books: @books } %>
+   <% end %>
+ <% end %>
+
